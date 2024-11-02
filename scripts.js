@@ -58,30 +58,27 @@ $(document).ready(function () {
   $('#for-machine-learning').attr('data-selected', true).find('.skill').addClass('enter');
 
   $('#list>span').click(function () {
-    // Получаем ID элемента, который был нажат
     var selectedId = $(this).attr('id');
     var targetArticle = $('#for-' + selectedId);
     var previoslySelectedArticle = $('#list span.active').removeClass('active');
     $(this).addClass('active');
-    // Убираем класс enter у всех элементов перед анимацией
-    $('article.skills[data-selected]')
-      .children('span')
-      .each(function (index) {
-        $(this).queue(function (next) {
-          $(this).removeClass('enter');
-          next();
-        });
-      });
-    // Запускаем анимацию
-    targetArticle.find('.skill').each(function (index) {
-      $(this)
-        .delay(index)
-        .queue(function (next) {
-          // Задержка для последовательного появления
-          $(this).addClass('enter'); // Добавляем класс visible
-          next(); // Переход к следующему элементу в очереди
-        });
-    });
+    $('article.skills[data-selected]').children('span').removeClass('enter');
+    // раскомментить, если нужна анимация чипсов
+    // .each(function (index) {
+    //   $(this).queue(function (next) {
+    //     $(this).removeClass('enter');
+    //     next();
+    //   });
+    // });
+    // targetArticle.find('.skill').each(function (index) {
+    //   $(this)
+    //     .delay(index)
+    //     .queue(function (next) {
+    //       $(this).addClass('enter');
+    //       next();
+    //     });
+    // });
+    targetArticle.find('.skill').addClass('enter');
     targetArticle.attr('data-selected', true);
   });
 });
