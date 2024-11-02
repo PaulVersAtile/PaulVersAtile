@@ -71,17 +71,16 @@
         </svg>
       </div>
     </header>
-    <main class="flex flex-col w-full pt-[56px] max-w-[1920px] mx-auto">
-      <img
-        id="ball"
-        src="./img/ball.png"
-        class="576:max-w-[513px] inline-block max-w-[250px] h-auto absolute first-place-ball transition ease-in-out duration-1000 z-[1]"
-      />
-
+    <main class="flex flex-col w-full pt-[56px]">
       <section
         id="section-stack"
-        class="px-4 576:px-[60px] 768:px-[66px] 1024:px-[200px] flex flex-col bg-[#F8FAFC]"
+        class="px-4 576:px-[60px] 768:px-[66px] 1024:pl-[100px] 1024:pr-[50px] 1280:px-[200px] flex flex-col bg-[#F8FAFC] max-w-[1920px] w-full mx-auto"
       >
+        <img
+          id="ball"
+          src="./img/ball.png"
+          class="576:max-w-[513px] inline-block max-w-[250px] h-auto absolute first-place-ball transition ease-in-out duration-1000 z-[1]"
+        />
         <div
           class="z-[20] flex flex-col items-start py-[120px] 576:py-[154px] 768:pb-[76px] 768:pt-[200px] 1024:pb-[120px] 1024:pt-[250px] gap-10 576:gap-[52px] 768:gap-[60px] 1024:gap-[80px]"
         >
@@ -122,14 +121,11 @@
         </div>
         <div
           id="stack"
-          class="py-9 z-[20] gap-8 576:py-[60px] 768:py-[76px] 768:gap-[64px] 1024:pt-[104px] 1024:pb-[180px] flex flex-col 1280:flex-row items-start justify-start 1280:justify-between scroll-mt-3"
+          class="z-[20] gap-8 py-9 576:py-[60px] 768:py-[76px] 768:gap-[64px] 1024:pt-[104px] 1024:pb-[180px] flex flex-col 1280:flex-row items-start justify-start 1280:justify-between scroll-mt-3"
         >
-          <h2 class="text-[48px] font-bold text-[#DC1F1F] 576:text-[72px] self-start leading-[85px]">Стэк</h2>
-          <div class="gap-12 flex flex-col">
-            <article
-              id="list"
-              class="flex flex-row flex-wrap gap-5 relative mb-[440px] 576:mb-[280px] 768:mb-[200px] 1024:mb-[100px]"
-            >
+          <h2 class="text-[48px] font-bold text-[#DC1F1F] 576:text-[72px] self-start leading-none">Стэк</h2>
+          <div class="gap-5 gap-y-12 flex flex-col 1280:max-w-[870px]">
+            <article id="list" class="flex flex-row flex-wrap gap-x-5 gap-y-3 relative">
               <span
                 id="machine-learning"
                 class="cursor-pointer hover:text-[#DC1F1F] active text-xl 576:text-[28px] font-bold"
@@ -384,85 +380,93 @@
                 <span class="skill">Kanban</span>
               </article>
             </article>
+            <div class="gap-2.5 flex flex-row flex-wrap opacity-0">
+              <span class="skill">UX</span>
+              <span class="skill">UI</span>
+              <span class="skill">Interaction Design</span>
+              <span class="skill">Design Thinking</span>
+              <span class="skill">Design Systems</span>
+              <span class="skill">Visual Design</span>
+              <span class="skill">Wireframing</span>
+              <span class="skill">Prototyping</span>
+              <span class="skill">User Research</span>
+              <span class="skill">Data-Driven Design</span>
+              <span class="skill">A/B Testing</span>
+              <span class="skill"> Competitor Analysis</span>
+              <span class="skill"> Product Strategy</span>
+              <span class="skill"> Project Management</span>
+              <span class="skill"> Information Architecture</span>
+              <span class="skill"> Typography</span>
+              <span class="skill"> Color Theory</span>
+              <span class="skill"> User Flows</span>
+              <span class="skill"> Usability Testing</span>
+              <span class="skill"> Responsive Design</span>
+              <span class="skill"> Grid Systems</span>
+            </div>
           </div>
         </div>
       </section>
       <section
-        class="bg-[#CBD5E1] z-[20] flex flex-col py-9 576:py-[60px] 768:py-[76px] 1024:py-[120px] 1280:pt-[132px] 1280:pb-[163px] gap-8 576:gap-[72px]"
+        class="bg-[#CBD5E1] z-[20] flex items-center justify-center py-9 576:py-[60px] 768:py-[76px] 1024:py-[120px] 1024:pl-0 1024:pr-[50px] 1280:pt-[132px] 1280:pb-[163px] gap-8 576:gap-[72px]"
         id="competitions"
       >
-        <div
-          class="flex flex-col 1024:flex-row w-full 1024:gap-2 1024:items-center 1024:justify-center justify-start gap-4 576:gap-6"
-        >
-          <h2 class="text-[48px] font-bold text-[#DC1F1F] 576:text-[72px]">Компетенции</h2>
-          <p class="font-normal text-[22px] text-[#020617] max-w-[500px] w-full">
-            Наш опыт и живой интерес к сложным задачам помогают нам находить нетривиальные решения.
-          </p>
+        <div class="max-w-[1920px] flex flex-col w-full">
+          <div
+            class="flex flex-col 1024:flex-row w-full px-4 576:px-12 1024:pr-0 1024:pl-[200px] 1024:pb-0 576:pb-[72px] pb-[32px] gap-4 1024:gap-5 justify-start"
+          >
+            <h2 class="text-[48px] font-bold text-[#DC1F1F] 576:text-[72px]">Компетенции</h2>
+            <p class="font-normal text-[22px] text-[#020617] 1024:mt-[50px] 1024:max-w-[500px]">
+              Наш опыт и живой интерес к сложным задачам помогают нам находить нетривиальные решения.
+            </p>
+          </div>
+          <ul class="text-[28px] font-semibold text-[#020617] 576:text-[40px] 768:text-[54px] px-4 1024:px-0">
+            <li class="flex flex-row">
+              <span class="1024:w-[200px] flex-shrink-0 w-[15%] 576:text-center">01</span>
+              <span>Консультация и Помощь в разработке стартапов.</span>
+            </li>
+            <li class="flex flex-row">
+              <span class="1024:w-[200px] flex-shrink-0 w-[15%] 576:text-center">02</span>
+              <span>Обучение и интеграция ML моделей</span>
+            </li>
+            <li class="flex flex-row">
+              <span class="1024:w-[200px] flex-shrink-0 w-[15%] 576:text-center">03</span>
+              <span>Разработка веб-сервисов c интеграцией ML решений </span>
+            </li>
+            <li class="flex flex-row">
+              <span class="1024:w-[200px] flex-shrink-0 w-[15%] 576:text-center">04</span>
+              <span>Пресейл/проектирование</span>
+            </li>
+            <li class="flex flex-row">
+              <span class="1024:w-[200px] flex-shrink-0 w-[15%] 576:text-center">05</span>
+              <span>Аудит решений</span>
+            </li>
+          </ul>
         </div>
-        <ul class="text-[28px] px-4 576:px-12 font-semibold text-[#020617] 576:text-[40px] 768:text-[54px]">
-          <li class="flex flex-row gap-4 576:gap-[72px]">
-            <span>01</span><span>Консультация и Помощь в разработке стартапов.</span>
-          </li>
-          <li class="flex flex-row gap-4 576:gap-[72px]">
-            <span>02</span><span>Обучение и интеграция ML моделей</span>
-          </li>
-          <li class="flex flex-row gap-4 576:gap-[72px]">
-            <span>03</span><span>Разработка веб-сервисов c интеграцией ML решений </span>
-          </li>
-          <li class="flex flex-row gap-4 576:gap-[72px]">
-            <span>04</span><span>Пресейл/проектирование</span>
-          </li>
-          <li class="flex flex-row gap-4 576:gap-[72px]"><span>05</span><span>Аудит решений</span></li>
-        </ul>
       </section>
       <section
-        class="px-4 576:px-[60px] w-full 768:px-[66px] 1024:px-[200px] py-[60px] 768:py-[120px] justify-start gap-[34px] flex flex-col bg-[#020617] z-[20] 1024:pt-[208px] 1024:pb-[200px] 1024:justify-center 1024:gap-[66px] 1024:flex-row"
+        class="px-4 576:px-[60px] w-full 768:px-[66px] 1024:pl-[200px] 1024:pr-[50] py-[60px] 768:py-[120px] justify-start gap-[34px] flex flex-col bg-[#020617] z-[20] 1024:pt-[208px] 1024:pb-[200px] 1024:justify-center 1024:gap-[66px] 1024:flex-row"
         id="contacts"
       >
-        <h2 class="font-bold text-[48px] text-[#DC1F1F] 576:text-[72px] 1280:min-w-[374px]">О нас</h2>
-        <div class="flex flex-col flex-1 gap-[60px] justify-start 768:gap-[176px]">
-          <p class="font-normal text-[#FEE2E2] text-[18px] 1024:text-[24px]">
-            Мы — небольшая команда экспертов, выполняющая задачи по всему миру и специализирующаяся на
-            передовых решениях. Мы помогаем бизнесу, стартапам и брендам расти и побеждать, превращая идеи в
-            функциональные решения. Мы тесно сотрудничаем с нашими клиентами, чтобы понять потребности и цели
-            продукта, ведь общение — ключ к успеху проекта.
-          </p>
-          <div class="flex flex-row flex-wrap gap-8">
-            <img
-              src="./img/people/firstHuman.png"
-              alt="photo of a guy"
-              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
-            />
-            <img
-              src="./img/people/secondHuman.png"
-              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
-              alt="photo of a guy"
-            />
-            <img
-              src="./img/people/thirdHuman.png"
-              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
-              alt="photo of a girl"
-            />
-            <img
-              src="./img/people/fourthHuman.png"
-              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
-              alt="photo of a girl"
-            />
-            <img
-              src="./img/people/fifthHuman.png"
-              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
-              alt="photo of a girl"
-            />
-            <img
-              src="./img/people/sixthHuman.png"
-              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
-              alt="photo of a girl"
-            />
-            <img
-              src="./img/people/seventhHuman.png"
-              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
-              alt="photo of a girl"
-            />
+        <div class="max-w-[1920px] mx-auto flex flex-col 1024:flex-row gap-[34px] 1024:gap-[100px] w-full">
+          <h2 class="font-bold text-[48px] text-[#DC1F1F] 576:text-[72px] leading-none">О нас</h2>
+          <div class="flex flex-col flex-1 gap-[60px] justify-start 768:gap-[150px]">
+            <p class="font-normal text-[#FEE2E2] text-[18px] 1024:text-[24px]">
+              Мы — небольшая команда экспертов, выполняющая задачи по всему миру и специализирующаяся на
+              передовых решениях. Мы помогаем бизнесу, стартапам и брендам расти и побеждать, превращая идеи в
+              функциональные решения. Мы тесно сотрудничаем с нашими клиентами, чтобы понять потребности и
+              цели продукта, ведь общение — ключ к успеху проекта.
+            </p>
+            <!-- class="w-[135px]    h-auto 576:w-[283px] 768:w-[220px]" -->
+            <div class="photos">
+              <img src="./img/people/firstHuman.png" alt="photo of a guy" class="w-full" />
+              <img src="./img/people/secondHuman.png" class="w-full" alt="photo of a guy" />
+              <b class="hidden 1024:block 1280:hidden"></b>
+              <img src="./img/people/thirdHuman.png" class="w-full" alt="photo of a girl" />
+              <img src="./img/people/fourthHuman.png" class="w-full" alt="photo of a girl" />
+              <img src="./img/people/fifthHuman.png" class="w-full" alt="photo of a girl" />
+              <img src="./img/people/sixthHuman.png" class="w-full" alt="photo of a girl" />
+              <img src="./img/people/seventhHuman.png" class="w-full" alt="photo of a girl" />
+            </div>
           </div>
         </div>
       </section>

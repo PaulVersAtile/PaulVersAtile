@@ -1,7 +1,13 @@
 @font-face {
   font-family: 'SFPro';
   src: url('./fonts/SFProDisplay-Regular.ttf') format('truetype');
-  font-weight: medium;
+  font-weight: regular;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SFPro';
+  src: url('./fonts/SFProDisplay-Bold.ttf') format('truetype');
+  font-weight: bold;
   font-style: normal;
 }
 
@@ -25,6 +31,10 @@
 
 * ::-webkit-scrollbar {
   display: none;
+}
+
+h2 {
+  line-height: 1;
 }
 
 header {
@@ -270,7 +280,7 @@ input:-webkit-autofill {
 .skills {
   position: absolute;
   left: 0;
-  top: 120%;
+  top: calc(100% + 48px);
   display: flex;
   flex-wrap: wrap;
 }
@@ -295,4 +305,11 @@ input:-webkit-autofill {
 .skill.exit {
   opacity: 0;
   transform: translateX(-200%) scale(0);
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 32px;
 }
