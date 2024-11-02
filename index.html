@@ -125,7 +125,7 @@
         >
           <h2 class="text-[48px] font-bold text-[#DC1F1F] 576:text-[72px] self-start leading-none">Стэк</h2>
           <div class="gap-5 gap-y-12 flex flex-col 1280:max-w-[870px]">
-            <article id="list" class="flex flex-row flex-wrap gap-x-5 gap-y-3 relative">
+            <article id="list" class="flex flex-row flex-wrap gap-x-5 gap-y-1 relative">
               <span
                 id="machine-learning"
                 class="cursor-pointer hover:text-[#DC1F1F] active text-xl 576:text-[28px] font-bold"
@@ -456,7 +456,6 @@
               функциональные решения. Мы тесно сотрудничаем с нашими клиентами, чтобы понять потребности и
               цели продукта, ведь общение — ключ к успеху проекта.
             </p>
-            <!-- class="w-[135px]    h-auto 576:w-[283px] 768:w-[220px]" -->
             <div class="photos">
               <img src="./img/people/firstHuman.png" alt="photo of a guy" class="w-full" />
               <img src="./img/people/secondHuman.png" class="w-full" alt="photo of a guy" />
@@ -606,38 +605,5 @@
       </aside>
     </main>
     <script src="scripts.js"></script>
-    <script>
-      $(document).ready(function () {
-        $('#for-machine-learning').attr('data-selected', true).find('.skill').addClass('enter');
-
-        $('#list>span').click(function () {
-          // Получаем ID элемента, который был нажат
-          var selectedId = $(this).attr('id');
-          var targetArticle = $('#for-' + selectedId);
-          var previoslySelectedArticle = $('#list span.active').removeClass('active');
-          $(this).addClass('active');
-          // Убираем класс enter у всех элементов перед анимацией
-          $('article.skills[data-selected]')
-            .children('span')
-            .each(function (index) {
-              $(this).queue(function (next) {
-                $(this).removeClass('enter');
-                next();
-              });
-            });
-          // Запускаем анимацию
-          targetArticle.find('.skill').each(function (index) {
-            $(this)
-              .delay(index)
-              .queue(function (next) {
-                // Задержка для последовательного появления
-                $(this).addClass('enter'); // Добавляем класс visible
-                next(); // Переход к следующему элементу в очереди
-              });
-          });
-          targetArticle.attr('data-selected', true);
-        });
-      });
-    </script>
   </body>
 </html>

@@ -54,41 +54,37 @@ $(document).ready(function () {
       $('#burger-icon').removeClass('burger-white').addClass('burger-color');
     }
   });
+
+  $('#for-machine-learning').attr('data-selected', true).find('.skill').addClass('enter');
+
+  $('#list>span').click(function () {
+    // Получаем ID элемента, который был нажат
+    var selectedId = $(this).attr('id');
+    var targetArticle = $('#for-' + selectedId);
+    var previoslySelectedArticle = $('#list span.active').removeClass('active');
+    $(this).addClass('active');
+    // Убираем класс enter у всех элементов перед анимацией
+    $('article.skills[data-selected]')
+      .children('span')
+      .each(function (index) {
+        $(this).queue(function (next) {
+          $(this).removeClass('enter');
+          next();
+        });
+      });
+    // Запускаем анимацию
+    targetArticle.find('.skill').each(function (index) {
+      $(this)
+        .delay(index)
+        .queue(function (next) {
+          // Задержка для последовательного появления
+          $(this).addClass('enter'); // Добавляем класс visible
+          next(); // Переход к следующему элементу в очереди
+        });
+    });
+    targetArticle.attr('data-selected', true);
+  });
 });
-
-// $(document).ready(function () {
-//   const $sidebar = $("#sidebar");
-
-//   // Функция для показа и скрытия сайдбара
-//   function toggleSidebar(show) {
-//     if (show) {
-//       $sidebar.addClass("show-sidebar").removeClass("hide-sidebar");
-//     } else {
-//       $sidebar.removeClass("show-sidebar").addClass("hide-sidebar");
-//     }
-//   }
-
-//   // Начальное состояние сайдбара
-//   toggleSidebar(false);
-
-//   // Обработчик клика для бургер-иконки
-//   $("#burger-icon").on("click", function () {
-//     toggleSidebar(true);
-//   });
-
-//   // Обработчик кликов для закрытия сайдбара
-//   $(
-//     "#cross, #sidebar-stack, #sidebar-competitions, #sidebar-contacts"
-//   ).on("click", function () {
-//     toggleSidebar(false);
-//   });
-
-//   // Обработчик клика для перехода к форме
-//   $("#go-to-form").on("click", function () {
-//     toggleSidebar(false);
-//     $("#form")[0].scrollIntoView();
-//   });
-// });
 
 $(document).ready(function () {
   const $sidebar = $('#sidebar');
@@ -120,52 +116,35 @@ $(document).ready(function () {
     toggleSidebar(false);
     $('#form')[0].scrollIntoView();
   });
-});
 
-$(document).ready(function () {
-  // Скрываем все элементы с классом .skills, кроме первого
-  // $('#for-machine-learning').css('display', 'flex').attr('data-selected', true);
-  // Обработчик клика для всех элементов списка
-  // $('#list > span').on('click', function () {
-  //   // Убираем класс active у всех и добавляем inactive
-  //   $('#list > span.active').removeClass('active').addClass('inactive');
-  //   // Добавляем класс active к текущему элементу и убираем inactive
-  //   $(this).addClass('active').removeClass('inactive');
-  //   // Скрываем все элементы .skills
-  //   $('.skills').hide(250);
-  //   // Получаем ID текущего элемента и показываем соответствующий блок
-  //   const targetId = $(this).attr('id');
-  //   $(`#for-${targetId}`).show(250).css('display', 'flex');
-  // });
-});
+  document.addEventListener('scroll', function () {
+    const scrollTop = document.documentElement.scrollTop;
+    if (scrollTop < 15) {
+      $('#header').removeClass('header-next');
+    }
+    if (scrollTop > 15) {
+      $('#header').addClass('header-next');
+    }
+  });
 
-document.addEventListener('scroll', function () {
-  const scrollTop = document.documentElement.scrollTop;
-  if (scrollTop < 15) {
-    $('#header').removeClass('header-next');
-  }
-  if (scrollTop > 15) {
-    $('#header').addClass('header-next');
-  }
-});
+  document.addEventListener('scroll', function () {
+    const scrollTop = document.documentElement.scrollTop;
+    const ball = $('#ball');
 
-document.addEventListener('scroll', function () {
-  const scrollTop = document.documentElement.scrollTop;
-  const ball = $('#ball');
+    // Удаляем все классы
+    ball.removeClass('first-place-ball second-place-ball third-place-ball fourth-place-ball');
 
-  // Удаляем все классы
-  ball.removeClass('first-place-ball second-place-ball third-place-ball fourth-place-ball');
-
-  // Определяем класс на основе scrollTop
-  if (scrollTop < 1) {
-    ball.addClass('first-place-ball');
-  } else if (scrollTop < 500) {
-    ball.addClass('second-place-ball');
-  } else if (scrollTop < 800) {
-    ball.addClass('third-place-ball');
-  } else {
-    ball.addClass('fourth-place-ball');
-  }
+    // Определяем класс на основе scrollTop
+    if (scrollTop < 1) {
+      ball.addClass('first-place-ball');
+    } else if (scrollTop < 500) {
+      ball.addClass('second-place-ball');
+    } else if (scrollTop < 800) {
+      ball.addClass('third-place-ball');
+    } else {
+      ball.addClass('fourth-place-ball');
+    }
+  });
 });
 
 $(document).ready(function () {

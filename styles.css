@@ -181,6 +181,7 @@ input:-webkit-autofill {
 
 .active-service {
   background-color: #dc1f1f;
+  border: 1px solid #dc1f1f;
   color: #f8fafc;
 }
 
@@ -203,20 +204,6 @@ input:-webkit-autofill {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
-/* .show-sidebar {
-  display: block;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  top: 0px;
-  z-index: 50;
-  overflow: hidden;
-}
-
-.hide-sidebar {
-  display: none;
-} */
 
 .show-sidebar {
   display: block; /* Убедитесь, что он отображается */
@@ -293,18 +280,13 @@ input:-webkit-autofill {
   font-size: 13px;
   font-weight: 600;
   opacity: 0;
-  transform: translateX(-200%) scale(0);
+  transform: translateX(-200%) translateY(-100%) scale(0);
   transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
 }
 
 .skill.enter {
   opacity: 1;
-  transform: translateX(0) scale(1);
-}
-
-.skill.exit {
-  opacity: 0;
-  transform: translateX(-200%) scale(0);
+  transform: translateX(0) translateY(0) scale(1);
 }
 
 .photos {
