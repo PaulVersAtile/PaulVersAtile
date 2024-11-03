@@ -37,6 +37,7 @@ h2 {
   line-height: 1;
 }
 
+/* header start */
 header {
   display: flex;
   transition: background-color 0.5s ease;
@@ -135,6 +136,13 @@ header {
   background-color: #cbd5e1;
 }
 
+.header-dark {
+  color: #f8fafc;
+  background-color: #020617;
+}
+
+/* header end */
+
 .logo-color {
   fill: #450303;
 }
@@ -151,11 +159,6 @@ header {
   fill: #ffffff;
 }
 
-.header-dark {
-  color: #f8fafc;
-  background-color: #020617;
-}
-
 input:focus {
   outline: none;
 }
@@ -163,6 +166,8 @@ input:focus {
 input:-webkit-autofill {
   -webkit-background-clip: text;
 }
+
+/* skills highlight start */
 
 .inactive {
   color: #020617;
@@ -176,22 +181,27 @@ input:-webkit-autofill {
   color: red;
 }
 
-.active-service {
-  background-color: #dc1f1f;
-  border: 1px solid #dc1f1f;
-  color: #f8fafc;
-}
+/* skills highlight end */
 
-.inactive-service {
-  border: 1px solid #94a3b8;
-  background-color: transparent;
-  color: #020617;
+/* services, budget start */
+#services,
+#budget {
+  p {
+    border: 1px solid #94a3b8;
+    background-color: transparent;
+    color: #020617;
+    &:hover {
+      background-color: #dc1f1f;
+      color: #f8fafc;
+    }
+    &.active-service {
+      background-color: #dc1f1f;
+      border: 1px solid #dc1f1f;
+      color: #f8fafc;
+    }
+  }
 }
-
-.inactive-service:hover {
-  background-color: #dc1f1f;
-  color: #f8fafc;
-}
+/* services, budget end */
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
@@ -300,5 +310,25 @@ input:-webkit-autofill {
   gap: 32px;
   img {
     max-width: 220px;
+  }
+}
+
+.loader {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

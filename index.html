@@ -475,74 +475,67 @@
         class="bg-[#fffff] max-w-[778px] z-[20] w-full m-auto flex flex-col justify-start py-8 px-4 gap-4 576:py-[56px] 576:px-[60px] 576:gap-[51px] 768:py-[104px] 768:px-[0px]"
       >
         <h2 class="text-[#FF4949] font-bold text-[34px]">О чем поговорим?</h2>
-        <div class="flex flex-col gap-3">
-          <p class="text-[#000000] text-base font-semibold">Услуга</p>
-          <div class="flex flex-row flex-wrap gap-2" id="services">
-            <p
-              id="architecture"
-              class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service"
-            >
-              Архитектура/Разработка ТЗ
-            </p>
-            <p
-              id="neural-networks"
-              class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service"
-            >
-              Нейросети/МЛ
-            </p>
-            <p
-              id="develop"
-              class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service"
-            >
-              Разработка решений
-            </p>
-            <p id="design" class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service">
-              Продуктовый дизайн
-            </p>
-          </div>
-        </div>
-        <div class="flex flex-col gap-3">
-          <p class="font-semibold text-base text-[#000000]">Бюджет в млн. RUB, ₽</p>
-          <div id="budget" class="flex flex-row flex-wrap gap-2">
-            <p
-              id="first-budget"
-              class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service"
-            >
-              1 - 1.5
-            </p>
-            <p
-              id="second-budget"
-              class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service"
-            >
-              1,5 - 5
-            </p>
-            <p
-              id="third-budget"
-              class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service"
-            >
-              5 - выше
-            </p>
-          </div>
-        </div>
         <form id="form" class="flex flex-col gap-3 w-full">
+          <div class="flex flex-col gap-3">
+            <p class="text-[#000000] text-base font-semibold">Услуга</p>
+            <div class="flex flex-row flex-wrap gap-2" id="services">
+              <p
+                id="architecture"
+                class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer active-service"
+                data-selected="true"
+              >
+                Архитектура/Разработка ТЗ
+              </p>
+              <p id="neural-networks" class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer">
+                Нейросети/МЛ
+              </p>
+              <p id="develop" class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer">
+                Разработка решений
+              </p>
+              <p id="design" class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer">
+                Продуктовый дизайн
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3">
+            <p class="font-semibold text-base text-[#000000]">Бюджет в млн. RUB, ₽</p>
+            <div id="budget" class="flex flex-row flex-wrap gap-2">
+              <p
+                id="low"
+                class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer active-service"
+                data-selected="true"
+              >
+                1 - 1.5
+              </p>
+              <p id="middle" class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer">1,5 - 5</p>
+              <p id="high" class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer">5 - выше</p>
+            </div>
+          </div>
+
           <div class="flex flex-col gap-3 1024:flex-row min-w-full">
             <input
               placeholder="Ваше имя"
               class="border rounded-full w-full 1024:w-1/2 py-4 px-7 text-[#000000] border-solid border-[#94A3B8] bg-[#F8FAFC] placeholder:text-[#94A3B8] placeholder:text-xl text-xl placeholder:font-normal"
+              name="name"
+              id="field-name"
             />
             <input
               placeholder="Email"
               class="border rounded-full py-4 px-7 w-full 1024:w-1/2 text-[#000000] border-solid bg-[#F8FAFC] border-[#94A3B8] placeholder:text-[#94A3B8] placeholder:text-xl text-xl placeholder:font-normal"
+              name="email"
+              id="field-email"
             />
           </div>
           <input
             placeholder="Поделитесь деталями проекта"
             class="border rounded-full py-4 px-7 w-full text-[#000000] bg-[#F8FAFC] border-solid border-[#94A3B8] placeholder:text-[#94A3B8] placeholder:text-xl text-xl placeholder:font-normal"
+            name="details"
+            id="field-details"
           />
           <button
-            class="w-full rounded-full bg-[#DC1F1F] py-3 px-4 text-xl font-normal text-[#F8FAFC] 1280:max-w-[146px]"
+            class="w-full rounded-full bg-[#DC1F1F] py-3 px-4 text-xl font-normal text-[#F8FAFC] 1280:max-w-[146px] flex items-center justify-center gap-4"
           >
-            Отправить
+            <span id="loader" class="loader hidden"></span> Отправить
           </button>
         </form>
       </section>
@@ -606,5 +599,47 @@
       </aside>
     </main>
     <script src="scripts.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+      integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+    <script>
+      $('#form').on('submit', function (event) {
+        event.preventDefault();
+        const service = $('#services p[data-selected]').attr('id');
+        const budget = $('#budget p[data-selected]').attr('id');
+        const formValues = new FormData(event.target);
+        const name = formValues.get('name');
+        const email = formValues.get('email');
+        const details = formValues.get('details');
+        $('#loader').show(200);
+        axios
+          .post('/', {
+            service,
+            budget,
+            name,
+            email,
+            details,
+          })
+          .then(function () {
+            alert('Запрос успешно отправлен!');
+          })
+          .catch(function () {
+            alert('Что-то пошло не так при отправке запроса');
+          })
+          .finally(function () {
+            $('#loader').hide(200);
+            resetForm();
+          });
+      });
+      function resetForm() {
+        $('#field-name').val('');
+        $('#field-email').val('');
+        $('#field-details').val('');
+      }
+    </script>
   </body>
 </html>

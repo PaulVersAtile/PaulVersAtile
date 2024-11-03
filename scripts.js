@@ -111,47 +111,13 @@ $(document).ready(function () {
   // Обработчик клика для перехода к форме
   $('#go-to-form').on('click', function () {
     toggleSidebar(false);
-    $('#form')[0].scrollIntoView();
+    $('#form').scrollIntoView();
   });
 
-  document.addEventListener('scroll', function () {
-    const scrollTop = document.documentElement.scrollTop;
-    if (scrollTop < 15) {
-      $('#header').removeClass('header-next');
-    }
-    if (scrollTop > 15) {
-      $('#header').addClass('header-next');
-    }
-  });
-
-  document.addEventListener('scroll', function () {
-    const scrollTop = document.documentElement.scrollTop;
-    const ball = $('#ball');
-
-    // Удаляем все классы
-    ball.removeClass('first-place-ball second-place-ball third-place-ball fourth-place-ball');
-
-    // Определяем класс на основе scrollTop
-    if (scrollTop < 1) {
-      ball.addClass('first-place-ball');
-    } else if (scrollTop < 500) {
-      ball.addClass('second-place-ball');
-    } else if (scrollTop < 800) {
-      ball.addClass('third-place-ball');
-    } else {
-      ball.addClass('fourth-place-ball');
-    }
-  });
-});
-
-$(document).ready(function () {
   // Общая функция для обработки кликов
   function handleServiceClick(selectedId, container) {
-    // Убираем активный класс у всех активных элементов
-    $(`${container} > p.active-service`).removeClass('active-service').addClass('inactive-service');
-
-    // Добавляем активный класс к выбранному элементу
-    $(`#${selectedId}`).addClass('active-service').removeClass('inactive-service');
+    $(`${container} > p.active-service`).removeClass('active-service').removeAttr('data-selected');
+    $(`#${selectedId}`).addClass('active-service').attr('data-selected', true);
   }
 
   // Обработчик кликов для элементов с классом services
@@ -162,5 +128,32 @@ $(document).ready(function () {
   // Обработчик кликов для элементов с классом budget
   $('#budget > p').on('click', function () {
     handleServiceClick(this.id, '#budget');
+  });
+
+  /** Анимация логотипа */
+  document.addEventListener('scroll', function () {
+    const scrollTop = document.documentElement.scrollTop;
+    if (scrollTop < 15) {
+      $('#header').removeClass('header-next');
+    }
+    if (scrollTop > 15) {
+      $('#header').addClass('header-next');
+    }
+  });
+
+  /** Позиционирование цветного кружочка на фоне */
+  document.addEventListener('scroll', function () {
+    const scrollTop = document.documentElement.scrollTop;
+    const ball = $('#ball');
+    ball.removeClass('first-place-ball second-place-ball third-place-ball fourth-place-ball');
+    if (scrollTop < 1) {
+      ball.addClass('first-place-ball');
+    } else if (scrollTop < 500) {
+      ball.addClass('second-place-ball');
+    } else if (scrollTop < 800) {
+      ball.addClass('third-place-ball');
+    } else {
+      ball.addClass('fourth-place-ball');
+    }
   });
 });
