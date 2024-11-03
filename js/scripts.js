@@ -86,7 +86,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   const $sidebar = $('#sidebar');
 
-  // Функция для показа и скрытия сайдбара
+  /** Sidebar */
   function toggleSidebar(show) {
     if (show) {
       $sidebar.removeClass('hide-sidebar').addClass('show-sidebar');
@@ -94,38 +94,34 @@ $(document).ready(function () {
       $sidebar.removeClass('show-sidebar').addClass('hide-sidebar');
     }
   }
-
-  // Начальное состояние сайдбара
   toggleSidebar(false);
 
-  // Обработчик клика для бургер-иконки
+  /** Обработчик клика для бургер-иконки */
   $('#burger-icon').on('click', function () {
     toggleSidebar(true);
   });
 
-  // Обработчик кликов для закрытия сайдбара
+  /** Обработчик кликов для закрытия сайдбара */
   $('#cross, #sidebar-stack, #sidebar-competitions, #sidebar-contacts').on('click', function () {
     toggleSidebar(false);
   });
 
-  // Обработчик клика для перехода к форме
+  /** Обработчик клика для перехода к форме */
   $('#go-to-form').on('click', function () {
     toggleSidebar(false);
     $('#form').scrollIntoView();
   });
 
-  // Общая функция для обработки кликов
+  /** Общая функция для обработки кликов services, budget полей */
   function handleServiceClick(selectedId, container) {
     $(`${container} > p.active-service`).removeClass('active-service').removeAttr('data-selected');
     $(`#${selectedId}`).addClass('active-service').attr('data-selected', true);
   }
-
-  // Обработчик кликов для элементов с классом services
+  /** Обработчик кликов для элементов с классом services  */
   $('#services > p').on('click', function () {
     handleServiceClick(this.id, '#services');
   });
-
-  // Обработчик кликов для элементов с классом budget
+  /** Обработчик кликов для элементов с классом budget */
   $('#budget > p').on('click', function () {
     handleServiceClick(this.id, '#budget');
   });

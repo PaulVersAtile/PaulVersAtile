@@ -3,32 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script
       src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
       integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
       crossorigin="anonymous"
     ></script>
     <script>
-      tailwind.config = {
-        theme: {
-          fontFamily: {
-            sfp: ['SFPro'],
-          },
-          extend: {
-            screens: {
-              320: { max: '320px' },
-              576: { min: '576px' },
-              768: { min: '768px' },
-              1024: { min: '1024px' },
-              1280: { min: '1280px' },
-              1920: { min: '1920px' },
-            },
-          },
-        },
-      };
+      // tailwind.config = {
+      //   theme: {
+      //     fontFamily: {
+      //       sfp: ['SFPro'],
+      //     },
+      //     extend: {
+      //       screens: {
+      //         320: { max: '320px' },
+      //         576: { min: '576px' },
+      //         768: { min: '768px' },
+      //         1024: { min: '1024px' },
+      //         1280: { min: '1280px' },
+      //         1920: { min: '1920px' },
+      //       },
+      //     },
+      //   },
+      // };
     </script>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/prod.css" />
     <title>Celsor</title>
   </head>
   <body class="flex flex-col w-full" id="body">
@@ -598,7 +598,7 @@
         </button>
       </aside>
     </main>
-    <script src="scripts.js"></script>
+    <script src="js/scripts.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
       integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
@@ -626,13 +626,13 @@
           })
           .then(function () {
             alert('Запрос успешно отправлен!');
+            resetForm();
           })
           .catch(function () {
             alert('Что-то пошло не так при отправке запроса');
           })
           .finally(function () {
             $('#loader').hide(200);
-            resetForm();
           });
       });
       function resetForm() {
