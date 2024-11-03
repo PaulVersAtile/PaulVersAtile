@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'SFPro';
-  src: url('./fonts/SFProDisplay-Regular.ttf') format('truetype');
+  src: url('../fonts/SFProDisplay-Regular.ttf') format('truetype');
   font-weight: regular;
   font-style: normal;
 }
 @font-face {
   font-family: 'SFPro';
-  src: url('./fonts/SFProDisplay-Bold.ttf') format('truetype');
+  src: url('../fonts/SFProDisplay-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }

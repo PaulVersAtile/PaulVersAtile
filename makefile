@@ -1,2 +1,2 @@
 tw:
-	npx tailwindcss -i styles.css -o css/prod.css --minify
+	npx tailwindcss -i css/styles.css -o css/prod.css --minify
