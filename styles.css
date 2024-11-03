@@ -39,19 +39,24 @@ h2 {
 
 header {
   display: flex;
-  transition: all 0.5s ease;
+  transition: background-color 0.5s ease;
   padding-bottom: 80px;
   margin-bottom: 10vw;
   .logo {
-    transition: all 1s ease;
+    will-change: transform, left;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-property: transform, width, height, left;
     position: absolute;
-    top: 150px;
+    top: 0;
+    left: 50%;
+    transform: translateY(150px) translateX(-50%);
     width: calc(100% - 400px);
     aspect-ratio: 605 / 150;
     max-width: 1550px;
   }
   nav > a {
-    transition: all 0.5s ease;
+    transition: background-color 0.5s ease;
   }
 }
 
@@ -59,9 +64,7 @@ header {
   header {
     margin-bottom: 0;
     .logo {
-      transition: all 0.6s ease;
-      position: absolute;
-      top: 100px;
+      transform: translateY(100px) translateX(-50%);
       width: calc(100% - 120px);
     }
   }
@@ -71,9 +74,7 @@ header {
   header {
     margin-bottom: 0;
     .logo {
-      transition: all 1s ease;
-      position: absolute;
-      top: 60px;
+      transform: translateY(60px) translateX(-50%);
       width: calc(100% - 32px);
     }
   }
@@ -82,8 +83,8 @@ header {
 .header-next {
   margin-bottom: 0;
   .logo {
-    top: 33px;
-    left: 200px;
+    transform: translate(200px, 33px);
+    left: 0px;
     width: 102px;
   }
 }
@@ -92,8 +93,7 @@ header {
   .header-next {
     margin-bottom: 0;
     .logo {
-      top: 33px;
-      left: 200px;
+      transform: translate(200px, 33px);
     }
   }
 }
@@ -102,8 +102,7 @@ header {
   .header-next {
     margin-bottom: 0;
     .logo {
-      top: 33px;
-      left: 60px;
+      transform: translate(70px, 33px);
     }
   }
 }
@@ -112,8 +111,7 @@ header {
   .header-next {
     margin-bottom: 0;
     .logo {
-      top: 25px;
-      left: 10px;
+      transform: translate(18px, 25px);
     }
   }
 }
@@ -122,8 +120,7 @@ header {
   .header-next {
     margin-bottom: 0;
     .logo {
-      top: 12px;
-      left: 16px;
+      transform: translate(16px, 12px);
     }
   }
 }
