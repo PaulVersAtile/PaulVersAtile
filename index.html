@@ -20,7 +20,7 @@
       <nav class="576:flex gap-[34px] w-full justify-end hidden items-center">
         <a class="text-2xl font-normal hidden 576:block" href="#stack">Стек</a>
         <a class="text-2xl font-normal hidden 576:block" href="#competitions">Компетенции</a>
-        <a class="text-2xl font-normal hidden 576:block" href="#contacts">Контакты</a>
+        <!-- <a class="text-2xl font-normal hidden 576:block" href="#contacts">Контакты</a> -->
       </nav>
 
       <svg
@@ -428,7 +428,7 @@
           </ul>
         </div>
       </section>
-      <section
+      <!-- <section
         class="px-4 576:px-[60px] w-full 768:px-[66px] 1024:pl-[200px] 1280:pl-[333px] 1024:pr-[50] py-[60px] 768:py-[120px] justify-start gap-[34px] flex flex-col bg-[#020617] z-[20] 1024:pt-[208px] 1024:pb-[200px] 1024:justify-center 1024:gap-[66px] 1024:flex-row"
         id="contacts"
       >
@@ -453,7 +453,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
       <section
         id="section-form"
         class="bg-[#fffff] max-w-[778px] z-[20] w-full m-auto flex flex-col justify-start py-8 px-4 gap-4 576:py-[56px] 576:px-[60px] 576:gap-[51px] 768:py-[104px] 768:px-[0px]"
@@ -467,16 +467,29 @@
                 id="architecture"
                 class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer active-service"
                 data-selected="true"
+                data-value="Архитектура/Разработка ТЗ"
               >
                 Архитектура/Разработка ТЗ
               </p>
-              <p id="neural-networks" class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer">
+              <p
+                id="neural-networks"
+                class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer"
+                data-value="Нейросети/МЛ"
+              >
                 Нейросети/МЛ
               </p>
-              <p id="develop" class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer">
+              <p
+                id="develop"
+                class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer"
+                data-value="Разработка решений"
+              >
                 Разработка решений
               </p>
-              <p id="design" class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer">
+              <p
+                id="design"
+                class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer"
+                data-value="Продуктовый дизайн"
+              >
                 Продуктовый дизайн
               </p>
             </div>
@@ -488,11 +501,24 @@
                 id="low"
                 class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer active-service"
                 data-selected="true"
+                data-value="1 - 1.5"
               >
                 1 - 1.5
               </p>
-              <p id="middle" class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer">1,5 - 5</p>
-              <p id="high" class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer">5 - выше</p>
+              <p
+                id="middle"
+                class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer"
+                data-value="1.5 - 5"
+              >
+                1,5 - 5
+              </p>
+              <p
+                id="high"
+                class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer"
+                data-value="5 - выше"
+              >
+                5 - выше
+              </p>
             </div>
           </div>
 
@@ -502,12 +528,17 @@
               class="border rounded-full w-full 1024:w-1/2 py-4 px-7 text-[#000000] border-solid border-[#94A3B8] bg-[#F8FAFC] placeholder:text-[#94A3B8] placeholder:text-xl text-xl placeholder:font-normal"
               name="name"
               id="field-name"
+              required
+              maxlength="50"
             />
             <input
               placeholder="Email"
               class="border rounded-full py-4 px-7 w-full 1024:w-1/2 text-[#000000] border-solid bg-[#F8FAFC] border-[#94A3B8] placeholder:text-[#94A3B8] placeholder:text-xl text-xl placeholder:font-normal"
               name="email"
               id="field-email"
+              required
+              pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+              maxlength="50"
             />
           </div>
           <input
@@ -515,11 +546,13 @@
             class="border rounded-full py-4 px-7 w-full text-[#000000] bg-[#F8FAFC] border-solid border-[#94A3B8] placeholder:text-[#94A3B8] placeholder:text-xl text-xl placeholder:font-normal"
             name="details"
             id="field-details"
+            rows="4"
+            maxlength="1000"
           />
           <button
             class="w-full rounded-full bg-[#DC1F1F] py-3 px-4 text-xl font-normal text-[#F8FAFC] 1280:max-w-[146px] flex items-center justify-center gap-4"
           >
-            <span id="loader" class="loader hidden"></span> Отправить
+            <span id="loader" class="loader hidden flex-shrink-0"></span> Отправить
           </button>
         </form>
       </section>
@@ -593,15 +626,15 @@
     <script>
       $('#form').on('submit', function (event) {
         event.preventDefault();
-        const service = $('#services p[data-selected]').attr('id');
-        const budget = $('#budget p[data-selected]').attr('id');
+        const service = $('#services p[data-selected]').attr('data-value');
+        const budget = $('#budget p[data-selected]').attr('data-value');
         const formValues = new FormData(event.target);
         const name = formValues.get('name');
         const email = formValues.get('email');
         const details = formValues.get('details');
         $('#loader').show(200);
         axios
-          .post('/', {
+          .post('/forms', {
             service,
             budget,
             name,
